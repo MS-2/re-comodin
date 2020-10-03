@@ -1,0 +1,27 @@
+.header {
+    display: flex;
+	justify-content: center;
+	background: white;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+	z-index: 1;
+
+}
+
+.header h1 {
+	font-size: 20px;
+	line-height: 40px;
+}
+
+
+.miniheader {
+    display: flex;
+	justify-content: center;
+	background: greenyellow;
+	position: relative;
+	max-width: 100%;
+	width: 100%;
+	z-index: -1;
+
+
+}
+
