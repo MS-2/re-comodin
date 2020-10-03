@@ -34,7 +34,7 @@ function App() {
   console.log(user)
   return (
     !user.isAuth ? 
-      (<BrowserRouter>
+      (<BrowserRouter basename={process.env.PUBLIC_URL}>
         <Route exact path="/">
           <Header></Header>
           <HomePage></HomePage>
@@ -43,7 +43,7 @@ function App() {
       // ---------------++++++++++++++++++++++++++++++++
             : //este es la division entre el login y el auth
       //----------------++++++++++++++++++++++++++++++++
-      (<BrowserRouter>
+      (<BrowserRouter basename={process.env.PUBLIC_URL}>
         <Route exact path="/">
           <Header></Header>  
           <MiniH text="semana x"></MiniH> 
