@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/re-comodin/static/css/main.de089d38.chunk.css",
-    "main.js": "/re-comodin/static/js/main.4b9ec141.chunk.js",
-    "main.js.map": "/re-comodin/static/js/main.4b9ec141.chunk.js.map",
+    "main.js": "/re-comodin/static/js/main.c54eb235.chunk.js",
+    "main.js.map": "/re-comodin/static/js/main.c54eb235.chunk.js.map",
     "runtime-main.js": "/re-comodin/static/js/runtime-main.f0f01fee.js",
     "runtime-main.js.map": "/re-comodin/static/js/runtime-main.f0f01fee.js.map",
     "static/css/2.5f5ed2d0.chunk.css": "/re-comodin/static/css/2.5f5ed2d0.chunk.css",
     "static/js/2.3ebcfa17.chunk.js": "/re-comodin/static/js/2.3ebcfa17.chunk.js",
     "static/js/2.3ebcfa17.chunk.js.map": "/re-comodin/static/js/2.3ebcfa17.chunk.js.map",
     "index.html": "/re-comodin/index.html",
-    "precache-manifest.c2956bbf57778512a428001fd101d06f.js": "/re-comodin/precache-manifest.c2956bbf57778512a428001fd101d06f.js",
+    "precache-manifest.8f5e858f6147aedc042eaa6e7e57d6e9.js": "/re-comodin/precache-manifest.8f5e858f6147aedc042eaa6e7e57d6e9.js",
     "service-worker.js": "/re-comodin/service-worker.js",
     "static/css/2.5f5ed2d0.chunk.css.map": "/re-comodin/static/css/2.5f5ed2d0.chunk.css.map",
     "static/css/main.de089d38.chunk.css.map": "/re-comodin/static/css/main.de089d38.chunk.css.map",
@@ -22,6 +22,6 @@
     "static/css/2.5f5ed2d0.chunk.css",
     "static/js/2.3ebcfa17.chunk.js",
     "static/css/main.de089d38.chunk.css",
-    "static/js/main.4b9ec141.chunk.js"
+    "static/js/main.c54eb235.chunk.js"
   ]
 }
