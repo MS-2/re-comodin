@@ -43,7 +43,7 @@ useEffect(() => {
     //     setOpen(true)
     // }
 
-  console.log("useeffect")
+//   console.log("useeffect")
     
 }, [user]);
 

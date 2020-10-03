@@ -7,7 +7,7 @@ class ContextProvider extends Component {
     constructor(props) {
     super()
     this.state = { 
-        isAuth: false,
+        isAuth: true,
         haveInternet: false,
         nombre: "Juan",
         error: null

@@ -51,7 +51,7 @@ function IconButtonLink({ label, to, activeOnlyWhenExact }) {
       path: to,
       exact: activeOnlyWhenExact
     });
-    console.log("mat",match)
+    // console.log("mat",match)
     return (
       <Paper className="cubo" elevation={3}>
         <Link to={to}>{<DollarSign ></DollarSign>}</Link>

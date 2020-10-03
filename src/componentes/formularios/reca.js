@@ -36,36 +36,29 @@ const handleSubmit = e =>{
     console.log(foto)
     console.log("registros guardado")
     setws(true)
-    let whatsappMessage = window.encodeURI(foto);
+    // let whatsappMessage = window.encodeURI(foto);
 
-    setencode(whatsappMessage) 
-    console.log(encode)
-    // var xhr = new XMLHttpRequest()
-    // xhr.open('GET', 'https://api.whatsapp.com/send?phone=584249598876&text=Hola!%20buenos%20dias')
-    // xhr.send()
+    // setencode(whatsappMessage) 
+    // console.log(encode)
 
-    // axios.get('https://api.whatsapp.com/send?phone=584249598876&text=Hola!%20buenos%20dias', {
-    //   body: {},
-    //   headers: {
-    //     "origin": "*",
-    //     "methods": "get",
-    //     "preflightContinue": false,
-    //     "optionsSuccessStatus": 204
-    //   }
-    // }
-    // )
+    axios.post('https://wa.me/?text=hola', {
+      body: {},
+      headers: {
+        "origin": "*",
+        "methods": "post",
+        "preflightContinue": false,
+        "optionsSuccessStatus": 204
+      }
+    }
+    )
 
-    // .then(response => {
-    //   console.log(response);
-    // })
-    // .catch(error => {
-    //   console.log(error)
-    // });
-    // "proxy": "https://api.whatsapp.com",
-    axios.post('https://api.whatsapp.com/send?phone=584249598876&text=Hola!%20buenos%20dias')
-    // return (
-    //   <a href="https://api.whatsapp.com/send?phone=584249598876&text=Hola!%20buenos%20dias" target="_blank"></a>
-    // )
+    .then(response => {
+      console.log(response);
+    })
+    .catch(error => {
+      console.log(error)
+    });
+
 
 //     let mail = e.target.email.value;
 //     let fin = e.target.fin.value;
@@ -103,7 +96,7 @@ imageType = {IMAGE_TYPES.JPG}
 imageCompression = {0.01}
 onTakePhoto = { (dataUri) => { handleTakePhoto(dataUri); } }
             /> : null}
-            <Form.Control  type="text" placeholder="foto" onChange={e => console.log("camara")} value={activecam}/>
+            {/* <Form.Control  type="text" placeholder="foto" onChange={e => console.log("camara")} value={activecam}/> */}
             <img src={foto}></img>
             <Button onClick={() => setactivecam(!activecam)}>activar camara</Button>
             </Form.Group>
@@ -142,7 +135,7 @@ onTakePhoto = { (dataUri) => { handleTakePhoto(dataUri); } }
           </div>)}
           {/* {ws ? <a href={"https://api.whatsapp.com/send?text="+foto + " "+ email} target="_blank">whatsapp?</a> : null } */}
           {/* {ws ? <a href={"https://web.whatsapp.com/send?l=en&text="+foto + " "+ email} target="_blank">whatsapp?</a> : null } */}
-          {ws ? <a href={"https://wa.me/?text="+encode} target="_blank">{encode}?</a> : null }
+          {ws ? <a href={"https://wa.me/?text="+email} target="_blank">enviar data a ws</a> : null }
         </div>
       </Form>
     </div>

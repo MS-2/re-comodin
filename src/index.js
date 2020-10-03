@@ -7,11 +7,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 ReactDOM.render(
 
-  // <React.StrictMode>
+  <React.StrictMode>
     <ContextUser>
       <App />
     </ContextUser>
-  // </React.StrictMode> 
+  </React.StrictMode> 
   ,
   document.getElementById('root')
 );
