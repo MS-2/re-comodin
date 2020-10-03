@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { Container, Button, Row,Col, Alert,Form } from 'react-bootstrap';
-import Camera, {IMAGE_TYPES } from 'react-html5-camera-photo';
+import Camera, {FACING_MODES,IMAGE_TYPES } from 'react-html5-camera-photo';
 import 'react-html5-camera-photo/build/css/index.css';
 import axios from 'axios';
 
@@ -91,6 +91,7 @@ const handleTakePhoto = (dataUri) => {
             <Form.Label>camara</Form.Label>
 {activecam ?<Camera
 isFullscreen={false}
+idealFacingMode = {FACING_MODES.ENVIRONMENT}
 idealResolution = {{width: 480, height: 320}}
 imageType = {IMAGE_TYPES.JPG}
 imageCompression = {0.01}
