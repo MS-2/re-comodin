@@ -3,7 +3,6 @@ import {ContextUser} from '../../contextos/userContext'
 import './estilos.css'
 import { Container, Button, Row,Col, Alert,Image,Form } from 'react-bootstrap';
 import {Link} from "react-router-dom";
-import Main from '../main/main'
 // import Backdrop from '@material-ui/core/Backdrop';
 // import CircularProgress from '@material-ui/core/CircularProgress';
 import logo from  '../../assets/LogoComodin.png';
@@ -88,23 +87,20 @@ return (
         </Form>
         <Row className="margen">
             <Col>
-            <a className="center">¿No tenes cuenta?</a>
-            {/* <Link className="center" to="/">¿No tenes cuenta?</Link> */}
+            <Link className="center" to="/">¿No tenes cuenta?</Link>
             </Col>
             <Col className="center"><Button variant="secondary">Crear cuenta</Button></Col>
         </Row>
 
         <Row>
-            <Col className="center">
-            <a className="center" href="/asd">¿Olvidaste tu contraseña?</a>
-                {/* <Link to="/">¿Olvidaste tu contraseña?</Link> */}
+            <Col className="center">    
+                <Link to="/">¿Olvidaste tu contraseña?</Link>
             </Col>
         </Row>
 
         <Row>
             <Col className="center">
                 <Image src={quattro} fluid />
-                {/* <img src={quattro} alt="img quattro"></img> */}
             </Col>
         </Row>
 

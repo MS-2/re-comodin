@@ -1,16 +1,15 @@
 import React, {useContext} from 'react';
 import {ContextUser} from './contextos/userContext';
-import {BrowserRouter, Route,Link,Switch} from "react-router-dom";
+import {BrowserRouter, Route, Switch} from "react-router-dom";
 import HomePage from './componentes/home/HomePage';
 import Header from './componentes/header/header';
 import FooterTabs from './componentes/footerTabs/footerTabs';
 import { Container } from 'react-bootstrap';
 import MiniH from './componentes/header/miniHeader';
-import { IconButtonLink } from './componentes/customLink/customLink';
+import  IconButtonLink  from './componentes/customLink/customLink';
 import { makeStyles } from '@material-ui/core/styles';
-import Recaudaciones from './componentes/formularios/recaudaciones';
 import Reca from './componentes/formularios/reca';
-
+import {Settings,DollarSign,Calendar,Edit,CreditCard,Clipboard,Shield,Coffee,Volume1,BarChart2,Gift } from 'react-feather';
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
@@ -48,27 +47,26 @@ function App() {
           <Header></Header>  
           <MiniH text="semana x"></MiniH> 
             <Container className={classes.root}>
-              <IconButtonLink to="/a"></IconButtonLink>
-              <IconButtonLink to="/recaudaciones"></IconButtonLink>
-              <IconButtonLink to="/nuevo"></IconButtonLink>
+              <IconButtonLink to="/recaudaciones" icono={<DollarSign></DollarSign>}></IconButtonLink>
+              <IconButtonLink to="/editar" icono={<Edit></Edit>}></IconButtonLink>
+              <IconButtonLink to="/calendario" icono={<Calendar></Calendar>}></IconButtonLink>
             </Container>
           <MiniH text="semana x"></MiniH> 
             <Container className={classes.root}>
-              <IconButtonLink to="/nuevo"></IconButtonLink>
-              <IconButtonLink to="/nuevo"></IconButtonLink>
-              <IconButtonLink to="/nuevo"></IconButtonLink>
+              <IconButtonLink to="/depositos" icono={<CreditCard></CreditCard>}></IconButtonLink>
+              <IconButtonLink to="/nuevo" icono={<Clipboard></Clipboard>}></IconButtonLink>
+              <IconButtonLink to="/calendario" icono={<Shield></Shield>}></IconButtonLink>
             </Container>
           <MiniH text="semana x"></MiniH> 
             <Container className={classes.root}>
-              <IconButtonLink to="/nuevo"></IconButtonLink>
-              <IconButtonLink to="/nuevo"></IconButtonLink>
-              <IconButtonLink to="/nuevo"></IconButtonLink>
+              <IconButtonLink to="/calendario" icono={<Settings></Settings>}></IconButtonLink>
+              <IconButtonLink to="/calendario" icono={<Coffee></Coffee>}></IconButtonLink>
+              <IconButtonLink to="/calendario" icono={<Volume1></Volume1>}></IconButtonLink>
             </Container>
           <MiniH text="semana x"></MiniH> 
             <Container className={classes.root}>
-              <IconButtonLink to="/nuevo"></IconButtonLink>
-              <IconButtonLink to="/nuevo"></IconButtonLink>
-              <IconButtonLink to="/nuevo"></IconButtonLink>
+              <IconButtonLink to="/calendario" icono={<Gift></Gift>}></IconButtonLink>
+              <IconButtonLink to="/calendario" icono={<BarChart2></BarChart2>}></IconButtonLink>
             </Container>
           <MiniH text="semana final"></MiniH> 
 
@@ -77,7 +75,9 @@ function App() {
         <Switch>
 
           <Route path="/recaudaciones">
+            <Header></Header>  
             <Reca />
+            <FooterTabs></FooterTabs>
           </Route>
 
         </Switch>
@@ -93,61 +93,3 @@ export default App;
 
 
 
-
-
-      {/* <HomePage></HomePage> */}
-
-
-
-      // return (
-
-
-      //   !user.isAuth ? 
-        
-      //   (   <Container>
-      //           <Image src={logo} fluid />
-      //           <Form onSubmit={handleSubmit}>
-      //               <Form.Group controlId="email">
-      //                   <Form.Label>Email address</Form.Label>
-      //                   <Form.Control  type="email" placeholder="Enter email" onChange={e => setemail(e.target.value)} value={email}/>
-      //               </Form.Group>
-        
-      //               <Form.Group controlId="pass">
-      //                   <Form.Label>Password</Form.Label>
-      //                   <Form.Control type="password" placeholder="Password" onChange={e => setpass(e.target.value)} value={pass}/>
-      //               </Form.Group>
-      //               <Button size="lg" block variant="dark" type="submit">Iniciar Sesion</Button>
-      //           </Form>
-      //           <Row className="margen">
-      //               <Col>
-      //               <a className="center">¿No tenes cuenta?</a>
-      //               {/* <Link className="center" to="/">¿No tenes cuenta?</Link> */}
-      //               </Col>
-      //               <Col className="center"><Button variant="secondary">Crear cuenta</Button></Col>
-      //           </Row>
-        
-      //           <Row>
-      //               <Col className="center">
-      //               <a className="center" href="/asd">¿Olvidaste tu contraseña?</a>
-      //                   {/* <Link to="/">¿Olvidaste tu contraseña?</Link> */}
-      //               </Col>
-      //           </Row>
-        
-      //           <Row>
-      //               <Col className="center">
-      //                   <Image src={quattro} fluid />
-      //                   {/* <img src={quattro} alt="img quattro"></img> */}
-      //               </Col>
-      //           </Row>
-        
-      //       </Container> ) 
-      //       // ---------------++++++++++++++++++++++++++++++++
-      //       : //este es la division entre el login y el auth
-      //       //----------------++++++++++++++++++++++++++++++++
-      //   (  <div >
-                
-      //           <Main></Main>
-        
-      //       </div>  )
-            
-      //     )

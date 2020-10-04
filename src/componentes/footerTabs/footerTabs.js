@@ -1,7 +1,8 @@
 
 import React, { useContext, useState } from 'react'
+import { useHistory } from "react-router-dom";
 import {ContextUser} from '../../contextos/userContext'
-import { Container } from 'react-bootstrap';
+// import { Container } from 'react-bootstrap';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Paper from '@material-ui/core/Paper';
@@ -10,7 +11,7 @@ import './estilos.css'
 // import {Link} from "react-router-dom";
 
 const FooterTabs = () => {
-
+let history = useHistory();
 const [value,SetValue] = useState(0);
 const user = useContext(ContextUser);
 
@@ -20,6 +21,7 @@ const handleChange = (e, newValue) => {
         case 0:
             console.log("inicio")
             SetValue(newValue)
+            history.push("/");
             break;
         case 1:
             console.log("configuracion")
