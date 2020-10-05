@@ -1,20 +1,22 @@
 import React, {useContext} from 'react';
 import {ContextUser} from './contextos/userContext';
+import {Container} from 'react-bootstrap';
+import {makeStyles} from '@material-ui/core/styles';
 import {BrowserRouter, Route, Switch} from "react-router-dom";
+import {Settings,DollarSign,Calendar,Edit,CreditCard,Clipboard,Shield,Coffee,Volume1,BarChart2,Gift } from 'react-feather';
 import HomePage from './componentes/home/HomePage';
 import Header from './componentes/header/header';
 import FooterTabs from './componentes/footerTabs/footerTabs';
-import { Container } from 'react-bootstrap';
 import MiniH from './componentes/header/miniHeader';
-import  IconButtonLink  from './componentes/customLink/customLink';
-import { makeStyles } from '@material-ui/core/styles';
+import IconButtonLink  from './componentes/customLink/customLink';
 import Reca from './componentes/formularios/reca';
-import {Settings,DollarSign,Calendar,Edit,CreditCard,Clipboard,Shield,Coffee,Volume1,BarChart2,Gift } from 'react-feather';
+import Libro from './componentes/formularios/libro';
+import Gastos from './componentes/formularios/gastos';
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     justifyContent: 'center',
-    flexWrap: 'wrap', 
+    flexWrap: 'wrap',
     '& > .cubo':{
       display:"flex",
       justifyContent:"center",
@@ -48,7 +50,7 @@ function App() {
           <MiniH text="semana x"></MiniH> 
             <Container className={classes.root}>
               <IconButtonLink to="/recaudaciones" icono={<DollarSign></DollarSign>}></IconButtonLink>
-              <IconButtonLink to="/editar" icono={<Edit></Edit>}></IconButtonLink>
+              <IconButtonLink to="/libro" icono={<Edit></Edit>}></IconButtonLink>
               <IconButtonLink to="/calendario" icono={<Calendar></Calendar>}></IconButtonLink>
             </Container>
           <MiniH text="semana x"></MiniH> 
@@ -69,17 +71,35 @@ function App() {
               <IconButtonLink to="/calendario" icono={<BarChart2></BarChart2>}></IconButtonLink>
             </Container>
           <MiniH text="semana final"></MiniH> 
-
           <FooterTabs></FooterTabs>
         </Route>
-        <Switch>
 
+{/* RECA */}
+        <Switch>
           <Route path="/recaudaciones">
             <Header></Header>  
             <Reca />
             <FooterTabs></FooterTabs>
           </Route>
-
+{/* LIBRO */}
+          <Route path="/libro">
+            <Header></Header>  
+            <MiniH text="semana x"></MiniH> 
+            <div style={{minHeight:100+"vh"}}>
+            <Container className={classes.root}>
+              <IconButtonLink to="/devoluciones" icono={<Coffee></Coffee>}></IconButtonLink>
+              <IconButtonLink to="/prestamos" icono={<Coffee></Coffee>}></IconButtonLink>
+              <IconButtonLink to="/gastos" icono={<Coffee></Coffee>}></IconButtonLink>
+            </Container>
+            </div>
+            <FooterTabs></FooterTabs>
+          </Route>
+{/* GASTOS */}
+          <Route path="/gastos">
+            <Header></Header>  
+            <Gastos />
+            <FooterTabs></FooterTabs>
+          </Route>
         </Switch>
       </BrowserRouter> )
 

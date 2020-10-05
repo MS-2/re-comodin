@@ -7,16 +7,16 @@ import moment from 'moment'
 import MiniH from '../header/miniHeader';
 import IconButtonLink from "../customLink/customLink";
 
-const Libro = () =>  {
+const Gastos = () =>  {
 
 const [formActivePanel1, setformActivePanel1] = useState(1);
 
 
   return (
     <div style={{display:"flex", minHeight:100+"vh", flexDirection:"column"}}>
-        asdasd
+        gastos
     </div>
     );
 }
 
-export default Libro;
+export default Gastos;

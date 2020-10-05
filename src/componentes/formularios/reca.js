@@ -6,7 +6,7 @@ import {Send} from 'react-feather';
 import moment from 'moment'
 // import axios from 'axios';
 import MiniH from '../header/miniHeader';
-import IconButtonLink from "../customLink/customLink";
+// import IconButtonLink from "../customLink/customLink";
 const Reca = () =>  {
 
 const [formActivePanel1, setformActivePanel1] = useState(1);
