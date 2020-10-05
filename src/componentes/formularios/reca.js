@@ -2,8 +2,11 @@ import React, {useState} from "react";
 import { Container, Button, Form, Image, Row,Col } from 'react-bootstrap';
 import Camera, {FACING_MODES,IMAGE_TYPES } from 'react-html5-camera-photo';
 import 'react-html5-camera-photo/build/css/index.css';
+import {Send} from 'react-feather';
+import moment from 'moment'
 // import axios from 'axios';
 import MiniH from '../header/miniHeader';
+import IconButtonLink from "../customLink/customLink";
 const Reca = () =>  {
 
 const [formActivePanel1, setformActivePanel1] = useState(1);
@@ -34,6 +37,27 @@ const [activarCAM1step4, setactivarCAM1step4] = useState();
 const [contadorMecanicoSalida, setcontadorMecanicoSalida] = useState('');
 const [fotoContadorMecanicoSalida, setfotoContadorMecanicoSalida] = useState();
 const [activarCAM2step4, setactivarCAM2step4] = useState();
+//step5
+const [totalMonedas, settotalMonedas] = useState();
+const [totalBilletes, settotalBilletes] = useState();
+const [totalMonedasyBilletes, settotalMonedasyBilletes] = useState();
+const [totalMonedasDevolver, settotalMonedasDevolver] = useState();
+const [totalPrestamo, settotalPrestamo] = useState();
+//step6
+let hora = moment().format('L');
+const [fechaHora, setfechaHora] = useState(hora)
+const [resultado, setresultado] = useState();
+const [devolucion, setdevolucion] = useState();
+const [totalIngresos, settotalIngresos] = useState();
+const [prestamosEgresos, setprestamosEgresos] = useState();
+const [totalEgresos, settotalEgresos] = useState();
+const [devolucionComisiones, setdevolucionComisiones] = useState();
+const [totalComisiones, settotalComisiones] = useState();
+const [quinceporciento, setquinceporciento] = useState();
+const [treintaPorciento, settreintaPorciento] = useState();
+const [totalPagar, settotalPagar] = useState();
+const [promedioPV, setpromedioPV] = useState();
+const [estadoContadores, setestadoContadores] = useState();
 
 
 const [ws, setws] = useState(false);
@@ -252,19 +276,19 @@ function handleTakePhotoAnimationDone (dataUri) {
             <Form.Group as={Row} controlId="contadorMecanico">
             <Form.Label column>total monedas</Form.Label>
             <Col>
-              <Form.Control  type="text" onChange={e => setcontadorMecanicoEntrada(e.target.value)} value={contadorMecanicoEntrada}/>
+              <Form.Control  type="text" onChange={e => settotalMonedas(e.target.value)} value={totalMonedas}/>
             </Col>
             </Form.Group>
             <Form.Group as={Row} controlId="contadorMecanico">
             <Form.Label column>total billetes</Form.Label>
             <Col>
-              <Form.Control  type="text" onChange={e => setcontadorMecanicoEntrada(e.target.value)} value={contadorMecanicoEntrada}/>
+              <Form.Control  type="text" onChange={e => settotalBilletes(e.target.value)} value={totalBilletes}/>
             </Col>
             </Form.Group>
             <Form.Group as={Row} controlId="contadorMecanico">
             <Form.Label column>total</Form.Label>
             <Col>
-              <Form.Control  type="text" onChange={e => setcontadorMecanicoEntrada(e.target.value)} value={contadorMecanicoEntrada}/>
+              <Form.Control  type="text" onChange={e => settotalMonedasyBilletes(e.target.value)} value={totalMonedasyBilletes}/>
             </Col>
             </Form.Group>
 
@@ -272,7 +296,7 @@ function handleTakePhotoAnimationDone (dataUri) {
             <Form.Group as={Row} controlId="contadorMecanico">
             <Form.Label column>total monedas</Form.Label>
             <Col>
-              <Form.Control  type="text" onChange={e => setcontadorMecanicoEntrada(e.target.value)} value={contadorMecanicoEntrada}/>
+              <Form.Control  type="text" onChange={e => settotalMonedasDevolver(e.target.value)} value={totalMonedasDevolver}/>
             </Col>
             </Form.Group>
 
@@ -280,17 +304,132 @@ function handleTakePhotoAnimationDone (dataUri) {
             <Form.Group as={Row} controlId="contadorMecanico" >
             <Form.Label column>total prestamo</Form.Label>
             <Col>
-              <Form.Control autoComplete="false"  type="text" onChange={e => setcontadorMecanicoEntrada(e.target.value)} value={contadorMecanicoEntrada}/>
+              <Form.Control autoComplete="false"  type="text" onChange={e => settotalPrestamo(e.target.value)} value={totalPrestamo}/>
+            </Col>
+            </Form.Group>
+            <Button className="float-left" onClick={handleNextPrevClick(1)(4)}>previous</Button>
+            <Button className="float-right" onClick={handleNextPrevClick(1)(6)}>next</Button>
+          </Container>)}
+{/* PASO 6  */} 
+{formActivePanel1 === 6 &&
+          (<Container>
+
+            <Form.Label>liquidacion</Form.Label>
+            <Form.Group as={Row} controlId="maquina">
+            <Form.Label column>N de maquinas</Form.Label>
+            <Col>
+              <Form.Control disabled  type="text" onChange={e => setnumeroMaquina(e.target.value)} value={numeroMaquina}/>
+            </Col>
+            </Form.Group>
+            <Form.Group as={Row} controlId="fechaHora">
+            <Form.Label column>fecha y hora</Form.Label>
+            <Col>
+              <Form.Control type="text" onChange={e => setfechaHora(e.target.value)} value={fechaHora}/>
+              {/* <input type="date" onChange={e => setfechaHora(e.target.value)} value={fechaHora}/>
+              <input type="text" onChange={e => setfechaHora(e.target.value)} value={fechaHora}/> */}
             </Col>
             </Form.Group>
 
-            <Button className="float-left" onClick={handleNextPrevClick(1)(4)}>previous</Button>
+            <h5 style={{backgroundColor:"red"}}>ingresos</h5>
+            <Form.Group as={Row} controlId="ingresoResultado">
+            <Form.Label column>resultado</Form.Label>
+            <Col>
+              <Form.Control  type="text" onChange={e => setresultado(e.target.value)} value={resultado}/>
+            </Col>
+            </Form.Group>
+
+            <Form.Group as={Row} controlId="ingrdevolucion">
+            <Form.Label column>devolucion</Form.Label>
+            <Col>
+              <Form.Control  type="text" onChange={e => setdevolucion(e.target.value)} value={devolucion}/>
+            </Col>
+            </Form.Group>
+
+            <Form.Group as={Row} controlId="contadorMecanico" >
+            <Form.Label column>total</Form.Label>
+            <Col>
+              <Form.Control autoComplete="false"  type="text" onChange={e => settotalIngresos(e.target.value)} value={totalIngresos}/>
+            </Col>
+            </Form.Group>
+
+            <h5 style={{backgroundColor:"red"}}>egresos</h5>
+            <Form.Group as={Row} controlId="contadorMecanico">
+            <Form.Label column>prestamos</Form.Label>
+            <Col>
+              <Form.Control  type="text" onChange={e => setprestamosEgresos(e.target.value)} value={prestamosEgresos}/>
+            </Col>
+            </Form.Group>
+
+            <Form.Group as={Row} controlId="contadorMecanico">
+            <Form.Label column>total</Form.Label>
+            <Col>
+              <Form.Control  type="text" onChange={e => settotalEgresos(e.target.value)} value={totalEgresos}/>
+            </Col>
+            </Form.Group>
+
+            <h5 style={{backgroundColor:"red"}}>comisiones</h5>
+            <Form.Group as={Row} controlId="contadorMecanico">
+            <Form.Label column>devolucion</Form.Label>
+            <Col>
+              <Form.Control  type="text" onChange={e => setdevolucionComisiones(e.target.value)} value={devolucionComisiones}/>
+            </Col>
+            </Form.Group>
+
+            <Form.Group as={Row} controlId="totalComisiones">
+            <Form.Label column>total</Form.Label>
+            <Col>
+              <Form.Control  type="text" onChange={e => settotalComisiones(e.target.value)} value={totalComisiones}/>
+            </Col>
+            </Form.Group>
+
+            <h5 style={{backgroundColor:"red"}}>resultado</h5>
+            <Form.Group as={Row} controlId="quinceporciento">
+            <Form.Label column>comision 15%</Form.Label>
+            <Col>
+              <Form.Control  type="text" onChange={e => setquinceporciento(e.target.value)} value={quinceporciento}/>
+            </Col>
+            </Form.Group>
+
+            <Form.Group as={Row} controlId="treintaPorciento">
+            <Form.Label column>comision 30%</Form.Label>
+            <Col>
+              <Form.Control  type="text" onChange={e => settreintaPorciento(e.target.value)} value={treintaPorciento}/>
+            </Col>
+            </Form.Group>
+            <Form.Group as={Row} controlId="totalPagar">
+            <Form.Label column>total a pagar</Form.Label>
+            <Col>
+              <Form.Control  type="text" onChange={e => settotalPagar(e.target.value)} value={totalPagar}/>
+            </Col>
+            </Form.Group>
+            <Form.Group as={Row} controlId="promedioPV">
+            <Form.Label column>promedio PV</Form.Label>
+            <Col>
+              <Form.Control  type="text" onChange={e => setpromedioPV(e.target.value)} value={promedioPV}/>
+            </Col>
+            </Form.Group>
+            <Form.Group as={Row} controlId="estadoContadores">
+            <Form.Label column>estado de contadores</Form.Label>
+            <Col>
+              <Form.Control  type="text" onChange={e => setestadoContadores(e.target.value)} value={estadoContadores}/>
+            </Col>
+            </Form.Group>
+
+
+            <Button className="float-left" onClick={handleNextPrevClick(1)(5)}>previous</Button>
             <Button size="lg" block variant="dark" type="submit">guardar datos</Button>
           </Container>)}
-          {/* ---------------------------- */}
           {/* {ws ? <a href={"https://api.whatsapp.com/send?text="+foto + " "+ email} target="_blank">whatsapp?</a> : null } */}
           {/* {ws ? <a href={"https://web.whatsapp.com/send?l=en&text="+foto + " "+ email} target="_blank">whatsapp?</a> : null } */}
-          {ws ? <a href={"https://wa.me/?text="+numeroMaquina} target="_blank" rel="noopener noreferrer">enviar data a ws</a> : null }
+          {ws ? <a style={{display:"flex", justifyContent:"center"}} href={"https://wa.me/?text=datos del formulario"} target="_blank" rel="noopener noreferrer">
+            <Send size="100px" color="white" style={{backgroundColor:"#01e675", borderRadius:7}}>
+              compartir en ws
+            </Send>
+                </a> 
+                : 
+                null 
+          }
+
         </div>
       </Form>
     </div>
