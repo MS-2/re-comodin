@@ -421,7 +421,7 @@ function handleTakePhotoAnimationDone (dataUri) {
           </Container>)}
           {/* {ws ? <a href={"https://api.whatsapp.com/send?text="+foto + " "+ email} target="_blank">whatsapp?</a> : null } */}
           {/* {ws ? <a href={"https://web.whatsapp.com/send?l=en&text="+foto + " "+ email} target="_blank">whatsapp?</a> : null } */}
-          {ws ? <a style={{display:"flex", justifyContent:"center"}} href={"https://wa.me/?text=datos del formulario"} target="_blank" rel="noopener noreferrer">
+          {ws ? <a style={{display:"flex", justifyContent:"center"}} href={"https://wa.me/?text=datos del formulario : "+numeroMaquina} target="_blank" rel="noopener noreferrer">
             <Send size="100px" color="white" style={{backgroundColor:"#01e675", borderRadius:7}}>
               compartir en ws
             </Send>
