@@ -35,6 +35,7 @@ const handleChange = (e, newValue) => {
             console.log("logout")
             SetValue(newValue)
             user.logout()
+            history.push("/");
             break;
         default:
             break;
