@@ -23,7 +23,8 @@ class ContextProvider extends Component {
             axios.post("https://valeria-server.herokuapp.com/api/auth/signin",query)
             .then(response => {
             this.setState({isAuth: !this.state.isAuth})
-            console.log(decode(response.data.token));
+            console.log("response : ",response.data.token)
+            console.log("response decodificado : ",decode(response.data.token))
             })
             .catch(error => {
             if (navigator.onLine) {
