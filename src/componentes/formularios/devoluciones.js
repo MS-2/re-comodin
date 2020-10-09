@@ -7,7 +7,7 @@ import React, {useState} from "react";
 // import MiniH from '../header/miniHeader';
 // import IconButtonLink from "../customLink/customLink";
 import './zStyles.css';
-const Libro = () =>  {
+const Devoluciones = () =>  {
 
 // const [formActivePanel1, setformActivePanel1] = useState(1);
 
@@ -19,4 +19,4 @@ const Libro = () =>  {
     );
 }
 
-export default Libro;
+export default Devoluciones;

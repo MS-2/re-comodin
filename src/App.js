@@ -10,11 +10,11 @@ import FooterTabs from './componentes/footerTabs/footerTabs';
 import MiniH from './componentes/header/miniHeader';
 import IconButtonLink from './componentes/customLink/customLink';
 import Reca from './componentes/formularios/reca';
-import Libro from './componentes/formularios/libro';
+import Devoluciones from './componentes/formularios/devoluciones';
 import Gastos from './componentes/formularios/gastos';
 import Depositos from './componentes/formularios/depositos';
-
-
+import Resumen from './componentes/formularios/resumen';
+import Buscador from './componentes/formularios/buscador';
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
@@ -52,15 +52,15 @@ function App() {
           <Header></Header>
           <MiniH text="semana x"></MiniH>
           <Container className={classes.root}>
-            <IconButtonLink text="Recaudaciones" color='#F8DC27' onclick={() => console.log("hlasd")} to="/recaudaciones" icono={<DollarSign color="black"></DollarSign>}></IconButtonLink>
+            <IconButtonLink text="Recaudaciones" color='#F8DC27'  to="/recaudaciones" icono={<DollarSign color="black"></DollarSign>}></IconButtonLink>
             <IconButtonLink text="Libro Diario" color='#F8DC27' to="/libro" icono={<Edit color="black"></Edit>}></IconButtonLink>
             <IconButtonLink text="Calendario" color='#F8DC27' to="/calendario" icono={<Calendar color="black"></Calendar>}></IconButtonLink>
           </Container>
           <MiniH text="semana x"></MiniH>
           <Container className={classes.root}>
             <IconButtonLink text="Depositos" color='#E5B63A' to="/depositos" icono={<CreditCard color="black"></CreditCard>}></IconButtonLink>
-            <IconButtonLink text="Planilla Resumen" color='#E5B63A' to="/nuevo" icono={<Clipboard color="black"></Clipboard>}></IconButtonLink>
-            <IconButtonLink text="Auditorias" color='#E5B63A' to="/calendario" icono={<Shield color="black"></Shield>}></IconButtonLink>
+            <IconButtonLink text="Planilla Resumen" color='#E5B63A' to="/resumen" icono={<Clipboard color="black"></Clipboard>}></IconButtonLink>
+            <IconButtonLink text="Auditorias" color='#E5B63A' to="/auditorias" icono={<Shield color="black"></Shield>}></IconButtonLink>
           </Container>
           <MiniH text="semana x"></MiniH>
           <Container className={classes.root}>
@@ -104,12 +104,28 @@ function App() {
             <Gastos />
             <FooterTabs></FooterTabs>
           </Route>
+              {/* |||||||| */}
+          {/* GASTOS */}
+          <Route path="/devoluciones">
+            <Header></Header>
+            <Devoluciones />
+            <FooterTabs></FooterTabs>
+          </Route>
           {/* |||||||| */}
           {/* DEPOSITOS */}
           <Route path="/depositos">
             <Header></Header>
             <MiniH text="semana x"></MiniH>
             <Depositos />
+            <FooterTabs></FooterTabs>
+          </Route>
+          {/* |||||||| */}
+          {/* RESUMEN */}
+          <Route path="/resumen">
+            <Header></Header>
+            <Resumen />
+            <MiniH text="resumen recaudaciones"></MiniH>
+            <Buscador />
             <FooterTabs></FooterTabs>
           </Route>
           {/* |||||||| */}

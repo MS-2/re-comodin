@@ -103,7 +103,7 @@ function handleTakePhotoAnimationDone (dataUri) {
             <Form.Group controlId="camara">
             {activarCAM ?<Camera
             isFullscreen={false}
-            idealFacingMode = {FACING_MODES.ENVIRONMENT}
+            // idealFacingMode = {FACING_MODES.ENVIRONMENT}
             idealResolution = {{width: 480, height: 320}}
             imageType = {IMAGE_TYPES.JPG}
             imageCompression = {0.01}
@@ -134,7 +134,7 @@ function handleTakePhotoAnimationDone (dataUri) {
               <Form.Label>camara</Form.Label>
               {activarCAM1Step2 ?<Camera
               isFullscreen={false}
-              idealFacingMode = {FACING_MODES.USER}
+              idealFacingMode = {FACING_MODES.ENVIRONMENT}
               idealResolution = {{width: 480, height: 320}}
               imageType = {IMAGE_TYPES.JPG}
               imageCompression = {0.01}

@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from "react";
 import { Container, Button, Form, Image, Row,Col } from 'react-bootstrap';
 import Camera, {FACING_MODES,IMAGE_TYPES } from 'react-html5-camera-photo';
-import {Camera as IconCamera, CameraOff } from 'react-feather';
+import {Camera as IconCamera } from 'react-feather';
 import 'react-html5-camera-photo/build/css/index.css';
-import moment from 'moment'
-import MiniH from '../header/miniHeader';
+// import moment from 'moment'
+// import MiniH from '../header/miniHeader';
 import IconButtonLink from "../customLink/customLink";
 import './zStyles.css';
 import Dropdown from 'react-dropdown';
