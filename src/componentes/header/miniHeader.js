@@ -3,7 +3,7 @@ import './estilos.css'
 
 
 const MiniH = (props) => (
-	<header className="miniheader">
+	<header style={{height:25}} className="miniheader">
 		<p>{props.text}</p>
 	</header>
 );

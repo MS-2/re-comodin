@@ -2,11 +2,12 @@ import React, {useState} from "react";
 import { Container, Button, Form, Image, Row,Col } from 'react-bootstrap';
 import Camera, {FACING_MODES,IMAGE_TYPES } from 'react-html5-camera-photo';
 import 'react-html5-camera-photo/build/css/index.css';
-import {Send} from 'react-feather';
+import {Send,Camera as IconCamera } from 'react-feather';
 import moment from 'moment'
+import './zStyles.css'
 // import axios from 'axios';
 import MiniH from '../header/miniHeader';
-// import IconButtonLink from "../customLink/customLink";
+import IconButtonLink from "../customLink/customLink";
 const Reca = () =>  {
 
 const [formActivePanel1, setformActivePanel1] = useState(1);
@@ -88,34 +89,33 @@ function handleTakePhotoAnimationDone (dataUri) {
 }
 
   return (
-    <div style={{display:"flex", minHeight:100+"vh", flexDirection:"column"}}>
-     
+    <div className="containerForm">
       <Form onSubmit={handleSubmit}>
         <div>     
 {/* PASO 1  */}
           {formActivePanel1 === 1 &&
           (<Container>
             
-           <Form.Group controlId="numeroMaquina">
-              <Form.Label>numero de maquina</Form.Label>
+           <Form.Group controlId="numeroMaquina" >
+              <Form.Label className="center">numero de maquina</Form.Label>
               <Form.Control type="text" value={numeroMaquina} onChange={e => setnumeroMaquina(e.target.value)} />
             </Form.Group>
             <Form.Group controlId="camara">
-            <Form.Label>camara</Form.Label>
             {activarCAM ?<Camera
             isFullscreen={false}
-            idealFacingMode = {FACING_MODES.USER}
+            idealFacingMode = {FACING_MODES.ENVIRONMENT}
             idealResolution = {{width: 480, height: 320}}
             imageType = {IMAGE_TYPES.JPG}
             imageCompression = {0.01}
-            onTakePhotoAnimationDone = { (dataUri) => { handleTakePhotoAnimationDone(dataUri); } }
-            onCameraError = { (error) => { handleCameraError(error); } }
             onTakePhoto = { (dataUri) => { setfotoNumeroMaquina(dataUri); } }
             /> : null}
-            
-            {fotoNumeroMaquina ? <p>vista previa imagen</p> : null}
+
+            {fotoNumeroMaquina ? <p className="center">vista previa foto</p> : null}
+            <Container className="center">
             <Image src={fotoNumeroMaquina}></Image>
-            <Button onClick={() => setactivarCAM(!activarCAM)}>activar camara</Button>
+            </Container>
+
+            <IconButtonLink text="Foto on/off camara" color='#E5B63A' to='#' onclick={()=> setactivarCAM(!activarCAM)} icono={<IconCamera color="black"></IconCamera>}></IconButtonLink>
             </Form.Group>
 
             <Button className="float-right" onClick={handleNextPrevClick(1)(2)}>next</Button>
@@ -159,8 +159,6 @@ function handleTakePhotoAnimationDone (dataUri) {
               idealResolution = {{width: 480, height: 320}}
               imageType = {IMAGE_TYPES.JPG}
               imageCompression = {0.01}
-              onTakePhotoAnimationDone = { (dataUri) => { handleTakePhotoAnimationDone(dataUri); } }
-              onCameraError = { (error) => { handleCameraError(error); } }
               onTakePhoto = { (dataUri) => { setfotoContadorDigitalSalida(dataUri); } }
               /> : null}
               {fotoContadorDigitalSalida ? <p>vista previa imagen</p> : null}
